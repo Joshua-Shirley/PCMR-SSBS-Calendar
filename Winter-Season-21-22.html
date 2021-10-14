@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Park City - Winter Season 2021-2022</title>
+    <meta title="" content="">
+    <meta name="description" content="Park City - Winter Season 2021-2022">
+    <meta name="author" content="Josh Shirley">
+
+    <meta property="og:title" content="Park City - Winter Season 2021-2022">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://windsurfutah.com/">
+    <meta property="og:description" content="A simple HTML5 Template for new projects.">
+    <meta property="og:image" content="image.png">
+
+    <!--
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    -->
+
+    <!-- External stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+
+    <!-- Pre Load Javascripts -->
+
+</head>
+
+<body>
+
+    <header>
+
+        <script>
+            function toggleMenu() {
+                var m = document.getElementById("mainMenu");
+                if (m.classList.contains("open")) {
+                    m.classList.remove("open");
+                } else {
+                    m.classList.add("open");
+                }
+
+            }
+        </script>
+
+        <div class="logo">
+            <a href="#settings">SkiGaupo</a>
+            <!-- <img src="media/logo.svg"> -->
+        </div>
+
+        <nav class="menu" id="mainMenu">
+            <ul>
+                <li><a href="#calendar">Calendar</a></li>
+                <li><a href="#settings">Settings</a></li>
+                <li><a href="#localprograms">Local Programs</a></li>
+                <li><a href="#printout">Print Out</a></li>
+            </ul>
+        </nav>
+
+        <div class="hamburger" id="activateMenu" onclick="toggleMenu();">
+            <a href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+
+    </header>
+
+    <main>
+        <h1>Winter Season - 2021 to 2022</h1>
+        <form>
+            <section id="settings">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <label for="startDate" class="col-3">Start Date</label>
+                            <div class="col-7">
+                                <input type="date" name="startDate" id="startDate" value="" disabled/>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <label for="endDate" class="col-3">End Date</label>
+                            <div class="col-7">
+                                <input type="date" name="endDate" id="endDate" value="" disabled/>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Employment Type</h3>
+                        <div class="row" id="employmentType"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Requirements</h3>
+                        <div class="row" id="requirements">
+
+                            <div class="col-6" id="FullTime">
+                                <ul>
+                                    <li>Peak Days: 40</li>
+                                    <li>Peak Days in November: 3</li>
+                                    <li>Minimum working days: 90</li>
+                                    <li>Start Date: 2021-12-12</li>
+                                    <li>End Date: 2022-04-17</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6" id="FullTimeStats">
+                                <div class="row">
+                                    <label for="peakMin" class="col-9 right">Peak Days</label>
+                                    <input type="text" class="col-3" name="peakMin" value=0 disabled>
+                                    <div class="invalid-feedback">
+                                        More peak days needed.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="peakNov" class="col-9 right">Peak November</label>
+                                    <input tpye="text" class="col-3" name="peakNov" value=0 disabled>
+                                    <div class="invalid-feedback">
+                                        At least 3 November peak days needed.
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="minimumDays" class="col-9 right">Minimum Days</label>
+                                    <input type="text" class="col-3" name="minimumDays" value=0 disabled>
+                                    <div class="invalid-feedback">
+                                        At least 90 days between 12/12 and 4/17 required.
+                                    </div>
+                                </div>
+                                </ul>
+                            </div>
+
+                            <div id="PartTime32">
+
+                            </div>
+
+                            <div id="PartTime18">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="localprograms">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Local Programs</h3>
+                        <div class="row" id="LocalPrograms"></div>
+                    </div>
+                </div>
+
+
+            </section>
+        </form>
+        <section id="calendar">
+            <h3>Calendar</h3>
+        </section>
+
+        <section id="printout">
+            <h3>Schedule Sumamry</h3>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <!-- Final Load Javascripts -->
+    <!-- Majority of js code should go here -->
+    <script src="js/data.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/requirements.js"></script>
+    <script src="js/localPrograms.js"></script>
+    <script src="js/scheduler.js"></script>
+    <!--
+    
+    <script src="js/stats.js"></script>
+    <script src="js/view.js"></script>    
+    -->
+
+    <script src="js/script.js "></script>
+
+</body>
+
+</html>
