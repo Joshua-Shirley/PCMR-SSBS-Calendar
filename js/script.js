@@ -7,32 +7,28 @@ document.querySelectorAll('nav.menu a').forEach(item => {
 
 function anchorPages(section) {
     document.querySelectorAll("section").forEach(element => {
+        //console.log(element);
         element.style.display = "none";
     })
     var a = document.getElementById(section);
     document.getElementById(section).style.display = "block";
 }
 
+// Print out the calender
+document.getElementById("startDate").value = specialDates["open date"];
+document.getElementById("endDate").value = specialDates["close date"];
+
+
+var calendar = document.getElementById("calendar");
+printCalendar(specialDates["open date"], specialDates["close date"]);
+
+scheduleInit();
+
 initializePrograms();
 
-
-/*
-// Add in Peak days
-function addPeakDays() {
-    for (i = 0; i < specialDates.peak.length; i++) {
-        var s = new Date(specialDates.peak[i]);
-        var sd = s.toDateString().replaceAll(' ', '');
-        var el = document.getElementById(sd);
-        el.appendChild(addPeakSpan());
-    }
-}
-
-function addPeakSpan() {
-    var span = document.createElement("span");
-    span.classList.add("peak");
-    span.innerHTML = "Peak";
-    return span;
-}
-
+// Add in the peak days 
 addPeakDays();
-*/
+peakDaysInitialize();
+
+// update the 
+updateWorkingStats();

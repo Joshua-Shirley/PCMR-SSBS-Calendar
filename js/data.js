@@ -35,6 +35,12 @@ const specialDates = {
             "Requirements": {
                 "Peak Days": 18
             }
+        },
+        "Masters Program": {
+            "Peak": [],
+            "Requirments": {
+                "Minimum Working Days": 90
+            }
         }
     },
     "Local Programs": {

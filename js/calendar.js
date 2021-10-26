@@ -2,14 +2,37 @@ var isDate = function(date) {
     return (new Date(date) !== "Invalid Date") && !isNaN(new Date(date));
 }
 
-function inputDate(date) {
+/* Functions to normalize DATES 'YYYY-MM-DD' */
+/* START */
+
+function JSONDateFormat(date) {
     var D = new Date(date);
     var y = D.getFullYear().toString();
     var m = ('0' + (D.getMonth() + 1).toString()).slice(-2);
     var d = ('0' + D.getDate().toString()).slice(-2);
-    var n = y + '-' + m + '-' + d;
-    return n;
+    //console.log(y + '-' + m + '-' + d);
+    return y + '-' + m + '-' + d;
 }
+
+function JSONtoDate(dateStr) {
+    var a = dateStr.split('-');
+    var d = new Date(a[0], a[1] - 1, a[2]);
+    return d;
+}
+
+function toDate(dateStr) {
+    var a = dateStr.split('-');
+    var d = new Date(a[0], a[1], a[2]);
+    return d;
+}
+
+function DateToID(date) {
+    var d = new Date(date);
+    var r = d.toDateString().replaceAll(' ', '');
+    return r;
+}
+
+/* END */
 
 function dateDifference(date1, date2) {
     const d1 = new Date(date1);
@@ -51,8 +74,9 @@ function weekdayName(day) {
 }
 
 function printCalendar(startDate, endDate) {
+    var eDate = new Date(endDate);
     var mDate = new Date(startDate);
-    while (mDate < endDate) {
+    while (mDate < eDate) {
         var s = new Date(mDate.getFullYear(), mDate.getMonth(), 1);
         calendar.appendChild(newMonth(s));
         mDate = new Date(mDate.getFullYear(), mDate.getMonth() + 1, 1);
@@ -157,9 +181,3 @@ function dateLabel(date) {
     span.innerHTML = d.getDate();
     return span;
 }
-
-document.getElementById("startDate").value = inputDate(specialDates["open date"]);
-document.getElementById("endDate").value = inputDate(specialDates["close date"]);
-
-var calendar = document.getElementById("calendar");
-printCalendar(new Date(specialDates["open date"]), new Date(specialDates["close date"]));

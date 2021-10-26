@@ -1,64 +1,64 @@
 // Maintain an object of schedule dates and events
 // 
-var schedule = {
+const schedule = {
     assigned: [],
+    type: "Full Time",
     "Saturday Program": "none",
     "Sunday Program": "none",
 }
 
-var days = document.querySelectorAll("div.day:not(.inactive):not(.weekday):not(.closed)");
-days.forEach(day => {
-    day.addEventListener("click", event => {
-        var d = new Date(day.getAttribute("datetime"));
-        scheduleAdd(d);
-    })
-});
-
-function JSONDateFormat(date) {
-    var D = new Date(date);
-    var y = D.getFullYear().toString();
-    var m = ('0' + (D.getMonth() + 1).toString()).slice(-2);
-    var d = ('0' + D.getDate().toString()).slice(-2);
-    return y + '-' + m + '-' + d;
+function scheduleInit() {
+    var days = document.querySelectorAll("div.day:not(.inactive):not(.weekday):not(.closed)");
+    days.forEach(day => {
+        day.addEventListener("click", event => {
+            var d = new Date(day.getAttribute("datetime"));
+            scheduleAdd(d);
+        })
+    });
 }
 
 function scheduleAdd(date) {
     var d = new Date(date);
     // check if already included
-    if (schedule.assigned.includes(d.toDateString())) {
+    if (schedule.assigned.includes(JSONDateFormat(d))) {
         // if exists then delete    
-        scheduleDelete(d.toDateString());
+        scheduleDelete(d);
     } else {
         // if not exists then push
-        schedulePush(d.toDateString());
+        schedulePush(d);
     }
+    // update the stats
+    updateWorkingStats();
+}
+
+function toDate(dateStr) {
+    var a = dateStr.split('-');
+    var d = new Date(a[0], a[1], a[2]);
+    return d;
 }
 
 function schedulePush(date) {
-    var date = new Date(date);
-    if (!schedule.assigned.includes(date.toDateString())) {
-        schedule.assigned.push(date.toDateString());
+    var d = new Date(date);
+    var jdate = JSONDateFormat(d);
+    if (!schedule.assigned.includes(jdate)) {
+        schedule.assigned.push(jdate);
     }
 
-    // update the stats
-
     // add css class
-    var d = new Date(date);
-    document.getElementById(d.toDateString().replaceAll(' ', '')).classList.add("scheduled");
+    document.getElementById(DateToID(d)).classList.add("scheduled");
     return;
 }
 
 function scheduleDelete(date) {
+    var d = new Date(date);
+    var f = JSONDateFormat(d);
     // update the data
     schedule.assigned = schedule.assigned.filter(
             function(ele) {
-                return ele != date;
+                return ele != f;
             })
         // remove the css class
-    var d = new Date(date);
-
-    // remove css class
-    document.getElementById(d.toDateString().replaceAll(' ', '')).classList.remove("scheduled");
+    document.getElementById(DateToID(d)).classList.remove("scheduled");
 }
 
 function arrayRemove(arr, value) {
@@ -98,13 +98,14 @@ var addScheduleDay = function() {
 
 
 function addLessonDays(programName) {
-    console.log(programName);
+    //console.log(programName);
     var arr = specialDates["Local Programs"][programName];
 
     for (i = 0; i < arr.length; i++) {
         var s = new Date(arr[i]);
         s.setDate(s.getDate() + 1);
-        var sd = s.toDateString().replaceAll(' ', '');
+        //var sd = s.toDateString().replaceAll(' ', '');
+        var sd = DateToID(s);
         // Add dates to the work days array
         workDays.push(sd);
         schedulePush(s);

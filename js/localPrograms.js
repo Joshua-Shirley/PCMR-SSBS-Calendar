@@ -32,6 +32,13 @@ function localProgramInput(Label, Name, Id, Value, Checked) {
     return div0;
 }
 
+function spanLocalProgram(program) {
+    var span = document.createElement("span");
+    span.classList.add("localProgram");
+    span.innerHTML = program;
+    return span;
+}
+
 function addProgramLessons(day, programName) {
 
     // Remove the other program dates.
@@ -44,7 +51,7 @@ function addProgramLessons(day, programName) {
 
     if (lastProgram != "none") {
         var removeArr = specialDates["Local Programs"][day][lastProgram];
-        console.log(removeArr);
+        //console.log(removeArr);
 
         removeArr.forEach(day => {
             var d = new Date(day);
@@ -52,8 +59,11 @@ function addProgramLessons(day, programName) {
             // Delete from the scheduler
             scheduleDelete(d.toDateString());
 
-            // Console Troublshooting
-            //console.log(d.toDateString() + ' removed');
+            // SPAN Element - Program Name Remove
+            var tempDay = DateToID(d);
+            var tempElement = document.getElementById(tempDay);
+            tempElement.removeChild(tempElement.querySelector("span.localProgram"));
+
         });
     }
 
@@ -73,9 +83,12 @@ function addProgramLessons(day, programName) {
             d.setDate(d.getDate() + 1);
             // Add to the scheduler
             schedulePush(d.toDateString());
+            // Add span to the calendar day
 
-            // Console Troubleshooting
-            //console.log(d.toDateString() + ' added');
+            // SPAN Element - Program Name Add                
+            var tempDay = DateToID(d);
+            document.getElementById(tempDay).appendChild(spanLocalProgram(programName));
+
         });
     }
 }

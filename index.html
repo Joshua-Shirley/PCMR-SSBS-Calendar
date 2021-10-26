@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css?v=1.0">
     <!-- Pre Load Javascripts -->
+    <script src="js/data.js"></script>
 
 </head>
 
@@ -43,20 +44,20 @@
                 } else {
                     m.classList.add("open");
                 }
-
             }
         </script>
 
         <div class="logo">
-            <a href="#settings">SkiGaupo</a>
+            <a href="index.html">SkiGaupo</a>
             <!-- <img src="media/logo.svg"> -->
         </div>
 
         <nav class="menu" id="mainMenu">
             <ul>
                 <li><a href="#calendar">Calendar</a></li>
-                <li><a href="#settings">Settings</a></li>
+                <li><a href="#settingsView">Settings</a></li>
                 <li><a href="#localprograms">Local Programs</a></li>
+                <li><a href="#private">Private Lessons</a></li>
                 <li><a href="#printout">Print Out</a></li>
             </ul>
         </nav>
@@ -73,8 +74,8 @@
 
     <main>
         <h1>Winter Season - 2021 to 2022</h1>
-        <form>
-            <section id="settings">
+        <form name="settings" id="settings">
+            <section id="settingsView">
 
                 <div class="row">
                     <div class="col-6">
@@ -173,6 +174,53 @@
         </form>
         <section id="calendar">
             <h3>Calendar</h3>
+            <div class="quickStats">
+                <h3>Quick Stats</h3>
+                <div class="row">
+                    <div class="col-7">Working Days</div>
+                    <div class="col-5">
+                        <span class="validate">
+                        <span id="workingDays">0</span> | <span id="totalDays">0</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">Peak Days</div>
+                    <div class="col-5">
+                        <span class="validate">
+                        <span id="workingDaysPeak">0</span> of <span id="requiredPeak">0</span> | <span id="totalPeak">0</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">Peak Days - November</div>
+                    <div class="col-5">
+                        <span class="validate">
+                        <span id="peakNovember"></span> of <span id="requiredPeakNovember">0</span> | <span id="peakNovemberMax">0</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">Minimum Days</div>
+                    <div class="col-5">
+                        <span class="validate">
+                            <span id="fivedayaverage">0</span> of <span id="fivedaytotal">0</span> | <span id="fivedaymax">0</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">Private Days</div>
+                    <div class="col-5">0</div>
+                </div>
+                <div class="row">
+                    <div class="col-7">Training Days</div>
+                    <div class="col-5">0</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="private">
+            <h3>Private Lessons</h3>
         </section>
 
         <section id="printout">
@@ -186,14 +234,13 @@
     </footer>
     <!-- Final Load Javascripts -->
     <!-- Majority of js code should go here -->
-    <script src="js/data.js"></script>
     <script src="js/calendar.js"></script>
     <script src="js/requirements.js"></script>
     <script src="js/localPrograms.js"></script>
     <script src="js/scheduler.js"></script>
-    <!--
-    
     <script src="js/stats.js"></script>
+    <!--    
+    
     <script src="js/view.js"></script>    
     -->
 
