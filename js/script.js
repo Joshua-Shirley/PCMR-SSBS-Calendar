@@ -31,4 +31,5 @@ addPeakDays();
 peakDaysInitialize();
 
 // update the 
+stats.static();
 updateWorkingStats();
