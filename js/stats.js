@@ -38,19 +38,52 @@ let stats = {
     update: function() {
         this.committed.working = schedule.assigned.length;
         this.committed.peak = schedule.assigned.filter(day => schedule.peak.includes(day)).length;
-        this.committed.peakNovember = schedule.peak.filter(day => (new Date(day).getMonth() == 10));
-        this.committed.november = schedule.assigned.filter(day => (new Date(day).getMonth() == 10));
-        this.committed.december = schedule.assigned.filter(day => (new Date(day).getMonth() == 11));
-        this.committed.january = schedule.assigned.filter(day => (new Date(day).getMonth() == 0));
-        this.committed.february = schedule.assigned.filter(day => (new Date(day).getMonth() == 1));
-        this.committed.march = schedule.assigned.filter(day => (new Date(day).getMonth() == 2));
-        this.committed.april = schedule.assigned.filter(day => (new Date(day).getMonth() == 3));
+        // This algorithm isn't working
+        // pull from the assigned days within the peak;
+        this.committed.peakNovember = schedule.assigned.filter(day => (schedule.peak.filter(day => (new Date(day).getMonth() == 10)).includes(day))).length;
+        this.committed.november = schedule.assigned.filter(day => (new Date(day).getMonth() == 10)).length;
+        this.committed.december = schedule.assigned.filter(day => (new Date(day).getMonth() == 11)).length;
+        this.committed.january = schedule.assigned.filter(day => (new Date(day).getMonth() == 0)).length;
+        this.committed.february = schedule.assigned.filter(day => (new Date(day).getMonth() == 1)).length;
+        this.committed.march = schedule.assigned.filter(day => (new Date(day).getMonth() == 2)).length;
+        this.committed.april = schedule.assigned.filter(day => (new Date(day).getMonth() == 3)).length;
     },
     daysInMonth: function(yyyymmdd) {
         var d = JSONtoDate(yyyymmdd);
         d.setMonth(d.getMonth() + 1);
         d.setDate(0);
         return d.getDate();
+    }
+
+}
+
+function validateStats() {
+    // peak days
+    var e = get("workingDaysPeak").parentElement.parentElement;
+    if (stats.committed.peak >= specialDates.Type[schedule.type].Requirements["Peak Days"]) {
+        e.classList.remove("invalid");
+        e.classList.add("valid");
+    } else {
+        e.classList.remove("valid");
+        e.classList.add("invalid");
+    }
+    // peak days november
+    var f = get("requiredPeakNovember").parentElement.parentElement;
+    if (stats.committed.peakNovember >= specialDates.Type[schedule.type].Requirements["Peak Days November"]) {
+        f.classList.remove("invalid");
+        f.classList.add("valid");
+    } else {
+        f.classList.remove("valid");
+        f.classList.add("invalid");
+    }
+    // minimum days full time days
+    var g = get("fivedaytotal").parentElement.parentElement;
+    if (stats.committed.fullTimeDays >= specialDates.Type[schedule.type].Requirements["Minimum Working Days"]) {
+        g.classList.remove("invalid");
+        g.classList.add("valid");
+    } else {
+        g.classList.remove("valid");
+        g.classList.add("invalid");
     }
 }
 
@@ -62,21 +95,18 @@ function updateWorkingStats() {
     get("totalPeak").innerHTML = stats.totals.peak;
     get("peakNovemberMax").innerHTML = stats.totals.peakNovember;
     get("fivedaymax").innerHTML = stats.totals.fullTimeDays;
+    get("requiredPeakNovember").innerHTML = specialDates.Type[schedule.type].Requirements["Peak Days November"];
+    get("requiredPeak").innerHTML = specialDates.Type[schedule.type].Requirements["Peak Days"];
 
     // Dynamic Data
     get("workingDays").innerHTML = calculateWorkingDays();
     get("workingDaysPeak").innerHTML = calculatePeakDays();
-
-
-    get("requiredPeak").innerHTML = specialDates.Type[schedule.type].Requirements["Peak Days"];
-
     get("peakNovember").innerHTML = calculatePeakDaysNovember();
-
-    get("requiredPeakNovember").innerHTML = specialDates.Type[schedule.type].Requirements["Peak Days November"];
-
     get("fivedaytotal").innerHTML = calculateFiveDayAverage();
-
     get("fivedayaverage").innerHTML = calculateFiveDayWorking();
+
+    stats.update();
+    validateStats();
 }
 
 function get(id) {
