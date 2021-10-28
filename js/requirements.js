@@ -20,6 +20,7 @@ function addPeakDays() {
     for (var i = 0; i < peakDays.length; i++) {
         var d = JSONtoDate(peakDays[i]);
         var id = document.getElementById(DateToID(d));
+        id.classList.add("peakParent");
         id.appendChild(spanPeak());
     }
 }
@@ -69,8 +70,6 @@ function employmentStatus() {
     }
     return req[index].value;
 }
-
-
 
 function alphaNumericText(str) {
     var pattern = /([^\w])+/g;

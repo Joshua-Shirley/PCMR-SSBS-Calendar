@@ -63,7 +63,6 @@ function updateWorkingStats() {
     get("peakNovemberMax").innerHTML = stats.totals.peakNovember;
     get("fivedaymax").innerHTML = stats.totals.fullTimeDays;
 
-
     // Dynamic Data
     get("workingDays").innerHTML = calculateWorkingDays();
     get("workingDaysPeak").innerHTML = calculatePeakDays();

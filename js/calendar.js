@@ -70,7 +70,18 @@ function weekdayName(day) {
     weekday[4] = "Thursday";
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
-    return weekday[day];
+
+    // Create span
+    var span = document.createElement("span");
+    span.innerHTML = weekday[day][0];
+
+    // abbreviations
+    var abbr = document.createElement("span");
+    abbr.classList.add("abbreviation");
+    abbr.innerHTML = weekday[day].substring(1);
+
+    span.appendChild(abbr);
+    return span;
 }
 
 function printCalendar(startDate, endDate) {
@@ -111,7 +122,7 @@ function dayLabels(day) {
     var label = document.createElement("div");
     label.classList.add("day");
     label.classList.add("weekday");
-    label.innerHTML = weekdayName(day);
+    label.appendChild(weekdayName(day));
     return label;
 }
 

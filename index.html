@@ -36,20 +36,8 @@
 
     <header>
 
-        <script>
-            function toggleMenu() {
-                var m = document.getElementById("mainMenu");
-                if (m.classList.contains("open")) {
-                    m.classList.remove("open");
-                } else {
-                    m.classList.add("open");
-                }
-            }
-        </script>
-
         <div class="logo">
             <a href="index.html">SkiGaupo</a>
-            <!-- <img src="media/logo.svg"> -->
         </div>
 
         <nav class="menu" id="mainMenu">
@@ -74,6 +62,65 @@
 
     <main>
         <h1>Winter Season - 2021 to 2022</h1>
+
+        <section id="private">
+            <h3>Private Lessons</h3>
+
+            <form name="private" class="private">
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="privateName">Name</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="privateName" id="privateName" value="" required />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="privateDate">Date</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="date" name="privateDate" id="privateDate" value="" min="2021-11-19" max="2022-04-17" required />
+                    </div>
+                </div>
+
+
+
+                <div class="row mb-3">
+                    <div class="col-12 mb-3">
+                        Lesson Length
+                    </div>
+
+                    <div class="col-12">
+                        <label for="lessonLength">
+                            <input type="radio" name="lessonLength" value="full" id="privateFull" checked />
+                            Full Day
+                        </label>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="lessonLength">
+                            <input type="radio" name="lessonLength" value="morning" id="privateAM" />
+                            Morning Half-Day
+                        </label>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="lessonLength">
+                            <input type="radio" name="lessonLength" value="afternoon" id="privatePM" />
+                            Afternoon Half-Day
+                        </label>
+                    </div>
+                </div>
+
+
+                <button type="submit">Add</button>
+            </form>
+
+        </section>
+
         <form name="settings" id="settings">
             <section id="settingsView">
 
@@ -161,58 +208,58 @@
                     </div>
                 </div>
             </section>
-            <section id="localprograms">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>Local Programs</h3>
-                        <div class="row" id="LocalPrograms"></div>
-                    </div>
-                </div>
-
-
-            </section>
         </form>
-        <section id="calendar">
-            <h3>Calendar</h3>
-            <div class="quickStats">
-                <h3>Quick Stats</h3>
-                <div class="row">
-                    <div class="col-7">Working Days</div>
-                    <div class="col-5">
-                        <span id="workingDays">0</span> | <span id="totalDays">0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7 validate ">Peak Days<span class="validate"></span></div>
-                    <div class="col-5">
-                        <span id="workingDaysPeak">0</span> of <span id="requiredPeak">0</span> | <span id="totalPeak">0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7 validate">Peak Days - Nov<span class="validate"></span></div>
-                    <div class="col-5">
-                        <span id="peakNovember"></span> of <span id="requiredPeakNovember">0</span> | <span id="peakNovemberMax">0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7 validate">Minimum Days<span class="validate"></span></div>
-                    <div class="col-5">
-                        <span id="fivedayaverage">0</span> of <span id="fivedaytotal">0</span> | <span id="fivedaymax">0</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-7">Private Days<span class="validate"></span></div>
-                    <div class="col-5">0</div>
-                </div>
-                <div class="row">
-                    <div class="col-7">Training Days<span class="validate"></span></div>
-                    <div class="col-5">0</div>
+
+        <section id="localprograms">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Local Programs</h3>
+                    <div class="row" id="LocalPrograms"></div>
                 </div>
             </div>
         </section>
 
-        <section id="private">
-            <h3>Private Lessons</h3>
+        <section id="calendar">
+            <h3>Calendar</h3>
+            <div class="quickStats">
+                <div class="col-12 col-lg-6">
+
+                    <div class="row validate invalid">
+                        <div class="col-7">Peak Days<span class="icon"></span></div>
+                        <div class="col-5">
+                            <span id="workingDaysPeak">0</span> of <span id="requiredPeak">0</span> | <span id="totalPeak">0</span>
+                        </div>
+                    </div>
+                    <div class="row validate valid">
+                        <div class="col-7">Peak Days - Nov<span class="icon"></span></div>
+                        <div class="col-5">
+                            <span id="peakNovember"></span> of <span id="requiredPeakNovember">0</span> | <span id="peakNovemberMax">0</span>
+                        </div>
+                    </div>
+                    <div class="row validate">
+                        <div class="col-7">Minimum Days<span class="icon"></span></div>
+                        <div class="col-5">
+                            <span id="fivedayaverage">0</span> of <span id="fivedaytotal">0</span> | <span id="fivedaymax">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="row">
+                        <div class="col-7">Working Days</div>
+                        <div class="col-5">
+                            <span id="workingDays">0</span> | <span id="totalDays">0</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">Private Days</div>
+                        <div class="col-5">0</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">Training Days</div>
+                        <div class="col-5">0</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="printout">
@@ -231,10 +278,6 @@
     <script src="js/localPrograms.js"></script>
     <script src="js/scheduler.js"></script>
     <script src="js/stats.js"></script>
-    <!--    
-    
-    <script src="js/view.js"></script>    
-    -->
 
     <script src="js/script.js "></script>
 

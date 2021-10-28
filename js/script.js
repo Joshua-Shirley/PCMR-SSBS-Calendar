@@ -1,13 +1,20 @@
+function toggleMenu() {
+    var m = document.getElementById("mainMenu");
+    if (m.classList.contains("open")) {
+        m.classList.remove("open");
+    } else {
+        m.classList.add("open");
+    }
+}
+
 document.querySelectorAll('nav.menu a').forEach(item => {
     item.addEventListener('click', event => {
-        //console.log(item.getAttribute("href"));
         anchorPages(item.getAttribute("href").replace("#", ""));
     })
 })
 
 function anchorPages(section) {
     document.querySelectorAll("section").forEach(element => {
-        //console.log(element);
         element.style.display = "none";
     })
     var a = document.getElementById(section);
@@ -17,7 +24,6 @@ function anchorPages(section) {
 // Print out the calender
 document.getElementById("startDate").value = specialDates["open date"];
 document.getElementById("endDate").value = specialDates["close date"];
-
 
 var calendar = document.getElementById("calendar");
 printCalendar(specialDates["open date"], specialDates["close date"]);
@@ -33,3 +39,5 @@ peakDaysInitialize();
 // update the 
 stats.static();
 updateWorkingStats();
+
+anchorPages("calendar");

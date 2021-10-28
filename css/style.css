@@ -131,13 +131,10 @@ nav.menu.open a:active {
     text-align: right;
 }
 
-.validate+div {
-    display: block;
-}
-
 .month {
     display: block;
     width: 100%;
+    min-width: 360px;
 }
 
 .week {
@@ -154,14 +151,28 @@ nav.menu.open a:active {
 
 .day {
     position: relative;
-    max-height: 150px;
     border: 1px solid black;
-    min-height: 100px;
     flex-grow: 7;
     width: inherit;
     border-radius: 3px;
     background-color: #2c2c30;
     color: #d9e2ee;
+}
+
+.abbreviation {
+    display: none;
+}
+
+.day {
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+span.date-day {
+    font-size: 1rem;
 }
 
 .day:hover {
@@ -217,7 +228,7 @@ span.localProgram {
     font-size: 0.89rem;
     font-weight: bold;
     text-align: center;
-    padding: .75rem;
+    padding: .5rem;
     width: inherit;
     border: 1px solid transparent;
     background-color: #1f78bf;
@@ -240,10 +251,12 @@ span.date-day {
     font-weight: bold;
 }
 
+.peakParent span.date-day {
+    color: #ff0000;
+}
+
 span.peak {
-    position: absolute;
-    top: 12px;
-    right: 9px;
+    display: none;
 }
 
 span.lesson {
@@ -266,7 +279,7 @@ span.lesson {
 .row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
     width: 100%;
     max-width: 100%;
     margin-top: 10px;
@@ -287,7 +300,7 @@ span.lesson {
 }
 
 .mb-3 {
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
 }
 
 .col-1,
@@ -431,16 +444,10 @@ div#LocalPrograms {
 }
 
 .quickStats {
-    position: fixed;
+    position: relative;
     display: block;
-    width: 250px;
-    border: 1px solid black;
-    top: 3rem;
-    right: 1rem;
-    background-color: #dfdfdf;
-    z-index: 100;
-    padding: 0.5rem;
-    font-size: 14px;
+    width: 100%;
+    font-size: 1rem;
 }
 
 .quickStats .row .col-4,
@@ -453,34 +460,37 @@ div#LocalPrograms {
     text-align: left;
 }
 
-.quickStats h3 {
-    margin: 0.25rem 0 0 0;
+.validate {}
+
+.valid {
+    color: rgb(0, 197, 0);
 }
 
-.validate {
-    display: inline-block;
+.valid div:nth-child(1) {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-size: 16px 16px;
-    padding-right: 30px;
     background-position: right 0 center;
 }
 
-.valid {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    color: rgb(10, 100, 10);
-}
-
 .invalid {
-    color: rgb(192, 0, 0);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' data-icon='times-circle' class='circle' role='img' viewBox='0 0 512 512'%3E%3Cpath fill='red' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E");
+    color: rgb(255 0 0);
 }
 
-@media screen and (min-width: 576px) {}
+.invalid div:nth-child(1) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' data-icon='times-circle' class='circle' role='img' viewBox='0 0 512 512'%3E%3Cpath fill='red' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: right 0 center;
+}
 
 @media screen and (min-width: 992px) {
     header {
         display: block;
         position: relative;
+    }
+    .col-lg-6 {
+        width: 50%;
     }
     .logo {
         position: absolute;
@@ -514,5 +524,61 @@ div#LocalPrograms {
         width: 950px;
         margin: 0 auto;
         padding-top: 0;
+    }
+    .quickStats {
+        border: 1px solid #1f78bf;
+        padding: 1rem;
+        font-size: 1.25rem;
+        border-radius: 0.3rem;
+        display: flex;
+        align-items: stretch;
+        align-content: stretch;
+        justify-content: space-between;
+    }
+    .quickStats>div {
+        padding: 1rem;
+    }
+    .quickStats>div:last-child {
+        padding-right: 0;
+    }
+    .quickStats>div:nth-child(1) {
+        padding-left: 0;
+    }
+    .quickStats h3 {
+        width: 100%;
+        display: block;
+    }
+    .quickStats .row .col-4,
+    .quickStats .row .col-5 {
+        text-align: right;
+    }
+    .quickStats .row .col-7,
+    .quickStats .row .col-8 {
+        text-align: left;
+    }
+    .quickStats h3 {
+        margin: 0.25rem 0 0 0;
+    }
+    .day {
+        min-height: 100px;
+        display: block;
+    }
+    span.date-day {
+        left: 0;
+    }
+    .peakParent span.date-day {
+        color: #2196f3;
+    }
+    .scheduled span.date-day {
+        color: white;
+    }
+    span.peak {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 9px;
+    }
+    .abbreviation {
+        display: inline-block;
     }
 }
