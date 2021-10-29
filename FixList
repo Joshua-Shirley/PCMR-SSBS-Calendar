@@ -16,8 +16,13 @@ NAV MENU icon
 Change the hamburger icon to an X when open.
 Get the code from the pet experts website.
 
-STATS
-Add the monthly totals to the extra stats.
 
-STATS
+// Items Completed //
+
+STATS -- Deleting
+Add the monthly totals to the extra stats.
+-- Done
+
+STATS -- done
 Fix the stats display on the max screen size.
+deleted from stats object as well

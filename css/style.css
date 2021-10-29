@@ -511,6 +511,12 @@ footer {
     .col-lg-6 {
         width: 50%;
     }
+    .lg-hide {
+        display: none;
+    }
+    .lg-show {
+        display: block;
+    }
     .logo {
         position: absolute;
         top: 18px;
@@ -553,6 +559,7 @@ footer {
         align-items: stretch;
         align-content: stretch;
         justify-content: space-between;
+        border-color: transparent;
     }
     .quickStats>div {
         padding: 1rem;
