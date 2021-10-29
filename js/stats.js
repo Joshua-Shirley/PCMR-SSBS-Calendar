@@ -15,6 +15,7 @@ let stats = {
         working: 0,
         peak: 0,
         peakNovember: 0,
+        fulltime: 0,
         private: 0,
         november: 0,
         december: 0,
@@ -38,9 +39,9 @@ let stats = {
     update: function() {
         this.committed.working = schedule.assigned.length;
         this.committed.peak = schedule.assigned.filter(day => schedule.peak.includes(day)).length;
-        // This algorithm isn't working
-        // pull from the assigned days within the peak;
         this.committed.peakNovember = schedule.assigned.filter(day => (schedule.peak.filter(day => (new Date(day).getMonth() == 10)).includes(day))).length;
+        // Add Algorithm to get full time days
+        this.committed.fulltime = schedule.assigned.filter(day => (dateDifference(specialDates.Type[schedule.type].Requirements["Start Date"], day) > 0)).length;
         this.committed.november = schedule.assigned.filter(day => (new Date(day).getMonth() == 10)).length;
         this.committed.december = schedule.assigned.filter(day => (new Date(day).getMonth() == 11)).length;
         this.committed.january = schedule.assigned.filter(day => (new Date(day).getMonth() == 0)).length;
@@ -77,13 +78,28 @@ function validateStats() {
         f.classList.add("invalid");
     }
     // minimum days full time days
-    var g = get("fivedaytotal").parentElement.parentElement;
-    if (stats.committed.fullTimeDays >= specialDates.Type[schedule.type].Requirements["Minimum Working Days"]) {
+    var g = get("fulltimeMinimum").parentElement.parentElement;
+    if (stats.committed.fulltime >= specialDates.Type[schedule.type].Requirements["Minimum Working Days"]) {
         g.classList.remove("invalid");
         g.classList.add("valid");
     } else {
         g.classList.remove("valid");
         g.classList.add("invalid");
+    }
+}
+
+document.getElementById("showMoreStats").onclick = function() { toggleMoreStats(); return false };
+
+function toggleMoreStats() {
+    var lS = document.getElementById("showMoreStats");
+    var mS = document.getElementById("moreStats");
+
+    if (mS.style.display == "none") {
+        mS.style.display = "block";
+        lS.innerText = "Hide extra stats";
+    } else {
+        mS.style.display = "none";
+        lS.innerText = "Show extra stats";
     }
 }
 
@@ -103,7 +119,7 @@ function updateWorkingStats() {
     get("workingDaysPeak").innerHTML = calculatePeakDays();
     get("peakNovember").innerHTML = calculatePeakDaysNovember();
     get("fivedaytotal").innerHTML = calculateFiveDayAverage();
-    get("fivedayaverage").innerHTML = calculateFiveDayWorking();
+    get("fulltimeMinimum").innerHTML = calculateFiveDayWorking();
 
     stats.update();
     validateStats();

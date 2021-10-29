@@ -21,12 +21,19 @@ function anchorPages(section) {
     document.getElementById(section).style.display = "block";
 }
 
+function updateCopyRight() {
+    var d = new Date();
+    document.querySelector("#copyrightYear").innerHTML = d.getFullYear();
+}
+
 // Print out the calender
 document.getElementById("startDate").value = specialDates["open date"];
 document.getElementById("endDate").value = specialDates["close date"];
 
 var calendar = document.getElementById("calendar");
 printCalendar(specialDates["open date"], specialDates["close date"]);
+
+updateCopyRight();
 
 scheduleInit();
 

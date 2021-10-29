@@ -13,6 +13,7 @@
     --color-grey: #A1A5A6;
     --color-gold: #F2B138;
     --color-blue: #003F63;
+    --color-dodger: dodgerblue;
 }
 
 body {
@@ -51,6 +52,7 @@ main {
 
 h1 {
     text-align: center;
+    font-size: 2.0rem;
 }
 
 h3 {
@@ -134,7 +136,7 @@ nav.menu.open a:active {
 .month {
     display: block;
     width: 100%;
-    min-width: 360px;
+    min-width: 320px;
 }
 
 .week {
@@ -274,6 +276,14 @@ span.lesson {
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
 
 .row {
@@ -460,8 +470,6 @@ div#LocalPrograms {
     text-align: left;
 }
 
-.validate {}
-
 .valid {
     color: rgb(0, 197, 0);
 }
@@ -482,6 +490,17 @@ div#LocalPrograms {
     background-repeat: no-repeat;
     background-size: 16px 16px;
     background-position: right 0 center;
+}
+
+footer {
+    min-height: 300px;
+    background-color: var(--color-grey);
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
+.alignCenter {
+    text-align: center;
 }
 
 @media screen and (min-width: 992px) {

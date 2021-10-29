@@ -59,7 +59,7 @@
     </header>
 
     <main>
-        <h1>Winter Season - 2021 to 2022</h1>
+        <h1>Winter - 2021-2022</h1>
 
         <section id="private">
             <h3>Private Lessons</h3>
@@ -170,28 +170,6 @@
                             </div>
 
                             <div class="col-6" id="FullTimeStats">
-                                <div class="row">
-                                    <label for="peakMin" class="col-9 right">Peak Days</label>
-                                    <input type="text" class="col-3" name="peakMin" value=0 disabled>
-                                    <div class="invalid-feedback">
-                                        More peak days needed.
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="peakNov" class="col-9 right">Peak November</label>
-                                    <input tpye="text" class="col-3" name="peakNov" value=0 disabled>
-                                    <div class="invalid-feedback">
-                                        At least 3 November peak days needed.
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label for="minimumDays" class="col-9 right">Minimum Days</label>
-                                    <input type="text" class="col-3" name="minimumDays" value=0 disabled>
-                                    <div class="invalid-feedback">
-                                        At least 90 days between 12/12 and 4/17 required.
-                                    </div>
-                                </div>
-                                </ul>
                             </div>
 
                             <div id="PartTime32">
@@ -222,28 +200,34 @@
             <div class="quickStats">
                 <div class="col-12 col-lg-6">
 
-                    <div class="row validate invalid">
+                    <div class="row validate">
                         <div class="col-7">Peak Days<span class="icon"></span></div>
                         <div class="col-5">
                             <span id="workingDaysPeak">0</span> of <span id="requiredPeak">0</span> | <span id="totalPeak">0</span>
                         </div>
                     </div>
-                    <div class="row validate valid">
+                    <div class="row validate">
                         <div class="col-7">Peak Days - Nov<span class="icon"></span></div>
                         <div class="col-5">
                             <span id="peakNovember"></span> of <span id="requiredPeakNovember">0</span> | <span id="peakNovemberMax">0</span>
                         </div>
                     </div>
                     <div class="row validate">
-                        <div class="col-7">Minimum Days<span class="icon"></span></div>
+                        <div class="col-7">Full Time Minimum<span class="icon"></span></div>
                         <div class="col-5">
-                            <span id="fivedayaverage">0</span> of <span id="fivedaytotal">0</span> | <span id="fivedaymax">0</span>
+                            <span id="fulltimeMinimum">0</span> of <span id="fivedaytotal">0</span> | <span id="fivedaymax">0</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-12 col-lg-6 alignCenter">
+                        <a href="#" id="showMoreStats">Show more</a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6" id="moreStats" style="display:none;">
                     <div class="row">
-                        <div class="col-7">Working Days</div>
+                        <div class="col-7">Total Working Days</div>
                         <div class="col-5">
                             <span id="workingDays">0</span> | <span id="totalDays">0</span>
                         </div>
@@ -267,8 +251,28 @@
     </main>
 
     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="version alignCenter">Current Version: <span id="versionNumber">1.0001</span></p>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-12">
+                    <p class="publicLicense alignCenter">This application is shared using a <a href="public-license.html" target="_blank">GNU GENERAL PUBLIC LICENSE</a>. </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p class="copyright alignCenter">Copyright &copy; <span id="copyrightYear">2021</span>, Joshua Shirley</p>
+                </div>
+            </div>
+
+        </div>
     </footer>
+
     <!-- Final Load Javascripts -->
     <!-- Majority of js code should go here -->
     <script src="js/calendar.js"></script>
@@ -276,8 +280,8 @@
     <script src="js/localPrograms.js"></script>
     <script src="js/scheduler.js"></script>
     <script src="js/stats.js"></script>
-
     <script src="js/script.js "></script>
+    <script src="js/scrollTopButton.js"></script>
 
 </body>
 
