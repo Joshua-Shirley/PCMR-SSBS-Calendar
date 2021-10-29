@@ -29,6 +29,7 @@ function scheduleAdd(date) {
     }
     // update the stats
     updateWorkingStats();
+    local.save();
 }
 
 function toDate(dateStr) {

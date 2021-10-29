@@ -1,0 +1,23 @@
+START DATE
+December 12th is getting filtered out.
+Find the new date problem.
+
+PEAK DATE REFERENCE
+Stored / copied into the schedule object.
+Move the references back to the specialdates object.
+
+SPECIALDATES NAME CHANGE
+carefully change the object name to sDates or something shorter.
+
+NAV MENU CLOSE
+The menu doesn't close when opened without hitting the hamburger icon.
+
+NAV MENU icon
+Change the hamburger icon to an X when open.
+Get the code from the pet experts website.
+
+STATS
+Add the monthly totals to the extra stats.
+
+STATS
+Fix the stats display on the max screen size.
