@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Programs - SSBS Calendar</title>
+    <meta title="" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Josh Shirley">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+    <meta property="og:title" content="SSBS Calendar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skigaupo.com">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="media/favicon/favicon.ico">
+
+    <link rel="apple-touch-icon" href="media/favicon/apple-touch-icon.png">
+
+    <script src="js/initialize.js"></script>
+
+    <!-- External stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/structure.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- <link rel="stylesheet" href="css/style.css?v=1.0"> -->
+
+    <!-- Pre Load Javascripts -->
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">SSBS Scheduler</a>
+            </div>
+
+            <nav class="menu" id="mainMenu">
+                <!-- Edit links in the menu.js file -->
+            </nav>
+
+            <div class="hamburger" id="activateMenu" onclick="Menu.toggle();">
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+
+            <script src="js/menu.js"></script>
+        </div>
+    </header>
+
+    <main>
+        <div class="div-12">
+            <h1>Today</h1>
+
+            <p>Here is your schedule for today.</p>
+
+            <form id="private">
+
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container ">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <p class="version alignCenter ">Current Version: <span id="versionNumber ">1.1</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <p class="copyright alignCenter ">Copyright &copy; <span id="copyrightYear">2022</span>, Joshua Shirley</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Final Load Javascripts -->
+    <!-- Majority of js code should go here -->
+    <script src="js/footer.js "></script>
+
+    <!--
+        Requirements should only be used on the settings page.
+    -->
+
+
+
+    <!-- Inessential Optional Add Ons -->
+    <script src="js/scrollTopButton.js "></script>
+
+</body>
+
+</html>

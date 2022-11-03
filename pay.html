@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Status - SSBS Calendar</title>
+    <meta title="" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Josh Shirley">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+    <meta property="og:title" content="SSBS Calendar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skigaupo.com">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="media/favicon/favicon.ico">
+
+    <link rel="apple-touch-icon" href="media/favicon/apple-touch-icon.png">
+
+    <script src="js/initialize.js"></script>
+
+    <!-- External stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/structure.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- <link rel="stylesheet" href="css/style.css?v=1.0"> -->
+    <style>
+        .payRate {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <!-- Pre Load Javascripts -->
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">SSBS Scheduler</a>
+            </div>
+
+            <nav class="menu" id="mainMenu">
+                <!-- Edit links in the menu.js file -->
+            </nav>
+
+            <div class="hamburger" id="activateMenu" onclick="Menu.toggle();">
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+
+            <script src="js/menu.js"></script>
+        </div>
+    </header>
+
+    <main>
+        <div class="div-12">
+            <h1>Pay Rate</h1>
+
+            <div class="row">
+                <div class="col-12 payRate">
+                    Your hourly rate: <span id="hourly"></span>
+                </div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <h3>Main Certification</h3>
+                    <div class="row" id="baseNone">
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certNone" value="none" checked>
+                            <label for="certNone">Not Certified</label>
+                        </div>
+                    </div>
+                    <div class="row" id="baseAlpine">
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certA1" value="level1 alpine">
+                            <label for="certA1">Alpine 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certA2" value="level2 alpine">
+                            <label for="certA2">Alpine 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certA3" value="level3 alpine">
+                            <label for="certA3">Alpine 3</label>
+                        </div>
+                    </div>
+                    <div class="row" id="baseSnowboard">
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certSB1" value="level1 snowboard">
+                            <label for="certSB1">Snowboard 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certSB2" value="level2 snowboard">
+                            <label for="certSB2">Snowboard 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="certification" class="form-check-input" id="certSB3" value="level3 snowboard">
+                            <label for="certSB3">Snowboard 3</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <h3>Secondary Certifications</h3>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="childSpecialist1" value="Child-Specialist 1">
+                            <label for="childSpecialist1">Child Specialist 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="childSpecialist2" value="Child-Specialist 2">
+                            <label for="childSpecialist2">Child Specialist 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="childSpecialist3" value="Child-Specialist 3">
+                            <label for="childSpecialist3">Child Specialist Trainer</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="freestyle1" value="Freestyle 1">
+                            <label for="freestyle1">Freestyle 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="freestyle2" value="Freestyle 2">
+                            <label for="freestyle2">Freestyle 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="freestyle3" value="Freestyle 3">
+                            <label for="freestyle3">Freestyle 3</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="adaptive1" value="Adaptive 1">
+                            <label for="adaptive1">Adaptive 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="adaptive2" value="Adaptive 2">
+                            <label for="adaptive2">Adaptive 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="adaptive3" value="Adaptive 3">
+                            <label for="adaptive3">Adaptive 3</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="USSA1" value="USSA 1">
+                            <label for="USSA1">USSA 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="USSA2" value="USSA 2">
+                            <label for="USSA2">USSA 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="USSA3" value="USSA 3">
+                            <label for="USSA3">USSA 3</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="nordic1" value="Nordic">
+                            <label for="nordic1">Telemark Nordic (1,2,3)</label>
+                        </div>
+                    </div>
+
+                    <div class="row hide" id="secondCertSB">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="snow1" value="Snowboard 1">
+                            <label for="snow1">Snowboard 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="snow2" value="Snowboard 2">
+                            <label for="snow2">Snowboard 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="snow3" value="Snowboard 3">
+                            <label for="snow3">Snowboard 3</label>
+                        </div>
+                    </div>
+
+                    <div class="row hide" id="secondCertAlpine">
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="alp1" value="Alpine 1">
+                            <label for="alp1">Alpine 1</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="alp2" value="Alpine 2">
+                            <label for="alp2">Alpine 2</label>
+                        </div>
+                        <div class="col-4">
+                            <input type="checkbox" name="secondary" class="form-check-input" id="alp3" value="Alpine 3">
+                            <label for="alp3">Alpine 3</label>
+                        </div>
+                    </div>
+
+                    <div class="row" id="secondCertAlpine">
+                        <h3>Education Staff</h3>
+                        <div class="col-3">
+                            <input type="radio" name="trainer" class="form-check-input" id="devo" value="Devo">
+                            <label for="devo">DEVO Team</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" name="trainer" class="form-check-input" id="decl1" value="DECL 1">
+                            <label for="decl1">DECL Level 1</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" name="trainer" class="form-check-input" id="decl2" value="DECL 2">
+                            <label for="decl2">DECL Level 2</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" name="trainer" class="form-check-input" id="decl3" value="DECL 3">
+                            <label for="decl3">DECL Level 3</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="button" class="btn btn-primary" id="Save" value="Save" />
+
+                            <input type="button" class="btn btn-primary" id="continueToPrograms" value="Local Programs" />
+                        </div>
+                    </div>
+            </form>
+
+            </div>
+
+    </main>
+
+    <footer>
+        <div class="container ">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <p class="version alignCenter ">Current Version: <span id="versionNumber ">1.1</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <p class="copyright alignCenter ">Copyright &copy; <span id="copyrightYear">2022</span>, Joshua Shirley</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Final Load Javascripts -->
+    <!-- Majority of js code should go here -->
+    <script src="js/footer.js "></script>
+
+    <!--
+        Requirements should only be used on the settings page.
+    -->
+
+    <script src="js/pay.js"></script>
+
+
+    <!-- Inessential Optional Add Ons -->
+    <script src="js/scrollTopButton.js "></script>
+
+</body>
+
+</html>

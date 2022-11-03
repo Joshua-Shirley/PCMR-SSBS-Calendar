@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Programs - SSBS Calendar</title>
+    <meta title="" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Josh Shirley">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+    <meta property="og:title" content="SSBS Calendar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skigaupo.com">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="media/favicon/favicon.ico">
+
+    <link rel="apple-touch-icon" href="media/favicon/apple-touch-icon.png">
+
+    <script src="js/initialize.js"></script>
+
+    <!-- External stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/structure.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/private.css">
+    <!-- <link rel="stylesheet" href="css/style.css?v=1.0"> -->
+
+    <!-- Pre Load Javascripts -->
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">SSBS Scheduler</a>
+            </div>
+
+            <nav class="menu" id="mainMenu">
+                <!-- Edit links in the menu.js file -->
+            </nav>
+
+            <div class="hamburger" id="activateMenu" onclick="Menu.toggle();">
+                <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+
+            <script src="js/menu.js"></script>
+        </div>
+    </header>
+
+    <main>
+        <div class="div-12">
+            <h1>Private Lessons</h1>
+
+            <p>Add private request lessons to your schedule.</p>
+
+            <form id="private" method="post">
+
+                <div class="row">
+                    <h4>Guest</h4>
+                    <div class="col-12">
+                        <label for="guestName">First Name</label>
+                        <input type="text" class="form-control" name="guestFirst" id="guestNameFirst" value="Jim">
+                    </div>
+                    <div class="col-12">
+                        <label for="guestNameLast">Last Name</label>
+                        <input type="text" class="form-control" name="guestLast" id="guestNameLast" value="James">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" class="form-control" name="startDate" id="startDate" value="2022-12-23" />
+                        <p>FIX THIS - display a calendar with open dates</p>
+                    </div>
+                    <div class="col-6">
+                        <label for="endDate">Days</label>
+                        <div class="dayInput">
+
+                            <input type="number" class="form-control" name="days" id="privateDays" value="1">
+
+                            <button type="button" class="btn up" id="up" onclick="private.inputNumber(1)">+</button>
+
+                            <button type="button" class="btn down" id="down" onclick="private.inputNumber(-1)">-</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="days">
+                    <div class="row" id="day1">
+                        <h4>Day</h4>
+                        <div class="col-4">
+                            <input type="radio" name="day1" id="FullDay1" value="Full" checked>
+                            <label for="FullDay1">Full Day <span class="hide-sm">(8:45 - 3:45 PM)</span></label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="day1" id="AMDay1" value="AM">
+                            <label for="AMDay1">Morning <span class="hide-sm">(8:45 - 11:45 AM)</span></label>
+                        </div>
+                        <div class="col-4">
+                            <input type="radio" name="day1" id="PMDay1" value="PM">
+                            <label for="PMDay1">Afternoon <span class="hide-sm">1-4 PM)</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="saveView">
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary" id="save" value="Save">
+                    </div>
+                </div>
+
+                <div class="row hide">
+                    <h4>Location</h4>
+                    <div class="col-4">
+                        <input type="radio" name="location" id="baseMV" value="mv">
+                        <label for="baseMV">Mountain Village</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="radio" name="location" id="baseCV" value="CV" checked>
+                        <label for="baseCV">Canyons Village</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="radio" name="location" id="traveling" value="traveling">
+                        <label for="traveling">Other Resort</label>
+                    </div>
+                </div>
+
+                <div class="row hide">
+                    <h4>Discipline</h4>
+                    <div class="col-3">
+                        <input type="radio" name="discipline" id="disAlpine" value="Ski" checked>
+                        <label for="disAlpine">Ski</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" name="discipline" id="disSnowboard" value="Snowboard">
+                        <label for="disSnowboard">Snowboard</label>
+                    </div>
+                </div>
+
+                <div class="row hide">
+                    <div class="col-12">
+                        <label for="guestPhone">Guest's Phone Number</label>
+                        <input type="text" class="form-control" name="guestPhone" id="guestPhone" value="">
+                    </div>
+                </div>
+                <div class="row hide">
+                    <div class="col-12">
+                        <label for="guestEmail">Guest's Email</label>
+                        <input type="text" class="form-control" name="guestEmail" id="guestEmail" value="">
+                    </div>
+                </div>
+                <div class="row hide">
+                    <h4>Returning Customer</h4>
+                    <div class="col-3">
+                        <input type="radio" name="guestExists" id="guestReturning" value="true" checked>
+                        <label for="guestReturning">Returning</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="radio" name="guestExists" id="guestNew" value="false">
+                        <label for="guestNew">New Guest</lable>
+                    </div>
+                </div>
+
+                <div class="row hide">
+                    <div class="col-12">
+                        <label for="guestID">Customer ID#</label>
+                        <input type="number" class="form-control" name="guestID" id="guestID" value="">
+                    </div>
+                </div>
+
+                <div class="row hide">
+                    <div class="col-12">
+                        <h4>Other Comments</h4>
+                        <textarea class="form-control" name="comments" id="comments"></textarea>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container ">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <p class="version alignCenter ">Current Version: <span id="versionNumber ">1.1</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <p class="copyright alignCenter ">Copyright &copy; <span id="copyrightYear">2022</span>, Joshua Shirley</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Final Load Javascripts -->
+    <!-- Majority of js code should go here -->
+    <script src="js/footer.js "></script>
+
+    <!--
+        Requirements should only be used on the settings page.
+    -->
+    <script src="js/privateLessons.js"></script>
+
+
+    <!-- Inessential Optional Add Ons -->
+    <script src="js/scrollTopButton.js "></script>
+
+</body>
+
+</html>
