@@ -1,0 +1,92 @@
+
+.filters {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+
+
+.btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.active {
+    background-color: #5a5a5a;
+    color: white;
+}
+
+.day {
+    background-color: white;    
+    color: black;
+    border-color: #999;
+    min-height: 80px;
+}
+
+.date-row {
+    /* line-height: 2.0em; */
+}
+
+.day span {
+    /* color: black; */
+}
+
+.day:hover {    
+    background-color: #ffffff;
+    border-color: #999;
+    outline: 0;
+    box-shadow: 0 0 0px 0px #333;
+    color: black;
+}
+
+.day:hover span {
+    color: black;
+}
+
+.day:hover .date-row span {
+    color: #9b2022;
+}
+
+.today {
+    background-color: white !important;
+    border-color: #008eff !important;
+    /* box-shadow: 0px 0px 3px 1px #2195f33c; */
+}
+
+.clinic {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    padding: 4px;
+}
+
+.clinic span {
+    color: black;
+    font-size: 14px;
+}
+
+.alpine {
+    border-color: #ea8181;
+    background-color: rgb(255 142 142);    
+}
+
+.snowboard {
+    border-color: rgb(135 182 220);
+    background-color: rgb(146 196 236);
+}
+
+.childrens {
+    border-color: rgb(254, 254, 147);
+    background-color: rgb(255 255 106);
+}
+
+.telemark {
+    border-color: rgb(56 210 63);
+    background-color: rgb(65 236 72);
+}
+
+.clinic:hover {
+    border-color: blue;
+    box-shadow: 0 0 1px 1px #0000004d;
+}

@@ -1,0 +1,52 @@
+div#days {
+    border: 1px solid grey;
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+div#days div.row:nth-child(1) {
+    margin-top: 0;
+}
+
+.hide-sm {
+    display: none;
+}
+
+h4 {
+    padding: 0;
+    margin: 8px;
+}
+
+.dayInput {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
+}
+
+.dayInput [type="number"] {
+    width: 50%;
+}
+
+.dayInput [type="button"] {
+    width: 60px;
+    font-weight: bold;
+}
+
+input#privateDays {
+    width: 100px;
+    text-align: center;
+}
+
+label[for='endDate'] {
+    margin-left: 15px;
+}
+
+button#up {
+    margin-left: 12px;
+    border-radius: 4px 0 0 4px;
+}
+
+button#down {
+    border-radius: 0 4px 4px 0;
+}

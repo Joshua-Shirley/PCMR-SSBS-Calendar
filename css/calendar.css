@@ -1,0 +1,253 @@
+
+
+
+.month {
+    display: block;
+    width: 100%;
+    min-width: 320px;
+}
+
+.week {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: space-between;
+    column-gap: 8px;
+    margin-bottom: 6px;
+    border-bottom: 3px solid transparent;
+}
+
+.day {
+    position: relative;
+    border: 1px solid #b4b6b5;
+    flex-grow: 7;
+    width: inherit;
+    border-radius: 3px;
+    background-color: #f6f5f5;
+    color: #d9e2ee;
+}
+
+.abbreviation {
+    display: none;
+}
+
+.day {
+    min-height: 40px;
+    /* text-align: center; */
+    /* display: flex; 
+    align-items: center;
+    justify-content: space-around;*/
+}
+
+.day.inactive {
+    border-color: transparent !important;
+    background-color: transparent !important;
+}
+
+.inactive:hover,
+.weekday:hover {
+    border-color: transparent !important;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+
+.date-row {
+    position: relative;
+    display:block;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8e8e8;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.5555em;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+span.date-day {
+    
+}
+
+.day:hover {
+    background-color: #99191a;
+    border-color: #871415;
+    outline: 0;
+    box-shadow: 0 0 2px 1px #99191a;
+}
+
+.day:hover span,
+.day:hover div {
+    color: white;
+}
+
+.labels .day {
+    min-height: auto;
+    font-size: 0.89rem;
+    font-weight: bold;
+    text-align: center;
+    padding: .5rem;
+    width: inherit;
+    border: 1px solid transparent;
+    background-color: #9b2022;
+    background-color: #5a5a5a;
+    color: #ffffff;
+    border-color: #2c2c30;
+}
+
+.week.labels {
+    --border-color: #2196f3;
+    --padding-bottom: 8px;
+    --margin-bottom: 8px;
+}
+
+span.date-day {
+    /*position: absolute;*/
+    /*left: 5px; */
+    /* padding: 0.5rem 0 0 0.5rem; */
+    /* color: #9b2022; */
+    /* font-size: 1.45rem; */
+    /* font-weight: bold; */
+}
+
+.day.scheduled {
+    background-color: #b76a6b;
+    /*background-color: #938d8d;*/
+    color: white;
+    border-color: #333;
+}
+
+.day.scheduled>span,
+.day.scheduled>div {
+    color: inherit;
+}
+
+.day.scheduled:hover {
+    box-shadow: 0 0 2px 1px #a5a5a5;
+}
+
+.day.closed {
+    background-color: white;
+    color: grey;
+}
+
+.day.closed span {
+    color: grey;
+}
+
+.day.closed:hover {
+    border-color: grey;
+    background-color: white;
+    box-shadow: none;
+}
+
+.day.closed:hover span {
+    color: grey;
+}
+
+.day.peak span.date-message {
+    /*color: red;*/
+}
+
+.date-icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 0.5rem;
+    color: #9b2022;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.day.full {
+    border-color: #212121;
+    background-color: rgb(0 0 0 / 70%);
+    color: white;
+}
+
+.day.full div {
+    color: white;
+}
+
+.day.full span {
+    color: white;
+}
+
+.day.full:hover {
+    background-color: #212121;
+    color: white;
+    box-shadow: 0 0 2px 1px #212121;
+}
+
+.day.full:hover span {
+    color: white;
+}
+
+div.viewStats {
+    position: fixed;
+    display: block;
+    background-color: rgb(0 0 0 / 70%);
+    color: white;
+    width: 280px;
+    /*right: 24px;*/
+    z-index: 10;
+    padding: 20px;
+    border: 1px solid #7e7e7e;
+}
+
+.statLine {
+    font-size: 1.00em;
+    line-height: 2.0em;
+    display: flex;
+    justify-content: space-between;
+}
+
+span.bold {
+    font-weight: bold;
+}
+
+button.filter {
+    padding: 6px 12px;
+    font-size: 1em;
+    margin: 0 6px 6px 0;
+    border-radius: 3px;
+    border: 1px solid #5a5a5a;
+    background-color: #b76a6b;
+    color: white;
+    background-color: #5a5a5a;
+    border-color: #4c4c4c;
+}
+
+button.filter:hover {
+    background-color: #99191a;
+    border-color: #871415;
+    outline: 0;
+    box-shadow: 0 0 2px 1px #99191a;
+}
+
+button.filter:active {
+    background-color: #0d0d0d;
+    border-color: #161616;
+    outline: 0;
+    box-shadow: 0 0 0px 0px transparent;
+}
+
+.today {    
+    background-color: var(--color-d) !important;
+    color: white !important;
+}
+
+.today > span {
+    color: inherit !important;
+}
+
+@media screen and (min-width: 992px) {
+    .abbreviation {
+        display: inline-block;
+    }
+    .day {
+        min-height: 100px;
+    }
+    
+}
