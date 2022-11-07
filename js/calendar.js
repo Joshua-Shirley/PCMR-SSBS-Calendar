@@ -130,9 +130,10 @@ let calendar = {
             day.classList.add("inactive");
         } else {
             var id = date.toDateString().toLowerCase().split(' ');
-            day.id = id.join('');
-            day.appendChild(this.dateLabel(date));
+            day.id = id.join('');            
             day.setAttribute("datetime", date.toDateString());
+            day.appendChild(this.dateLabel(date));
+            day.appendChild(this.dateContent());
         }
 
         return day;
@@ -148,13 +149,19 @@ let calendar = {
         return div;
     },
 
+    dateContent: function() {
+        var div = document.createElement("div");
+        div.classList.add("date-content");
+        return div;
+    },
+
     today: function() {
         var t = new Date();
         var id = t.toDateString().toLowerCase().split(' ').join('');
         var el = document.getElementById(id);
         el.classList.add("today");
         var span = document.createElement("span");
-        span.classList.add("fixme");
+        span.classList.add("dateNote");
         span.innerText = "Today";
         el.querySelector("div.date-row").append(span);
     }

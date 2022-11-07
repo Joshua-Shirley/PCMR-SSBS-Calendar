@@ -34,14 +34,25 @@ let payScale = {
     },
 
     loadSaved: function() {
+        var str = localStorage.getItem("pay");
+        if( str == null) {
+            localStorage.setItem("pay",'{"main":"none","discipline":"none","extra":0,"pay":0,"base":0,"extras":[]}');
+        }
         this.certifications = JSON.parse(localStorage.getItem("pay"));
+
         // base pay
-        var val = this.certifications.main + ' ' + this.certifications.discipline;
+        if ( this.certifications.main == 'none') {
+            var val = 'none';
+        } else {
+            var val = this.certifications.main + ' ' + this.certifications.discipline;
+        }
         document.querySelector("input[value='" + val + "']").setAttribute("checked", "checked");
         // extras
-        this.certifications.extras.forEach(cert => {
-            document.querySelector("input[value='" + cert + "']").setAttribute("checked", "checked");
-        });
+        if( this.certifications.extras.length > 0 ){
+            this.certifications.extras.forEach(cert => {
+                document.querySelector("input[value='" + cert + "']").setAttribute("checked", "checked");
+            });
+        }
     },
 
     displayRate: function() {

@@ -24,12 +24,11 @@
     min-height: 80px;
 }
 
-.date-row {
-    /* line-height: 2.0em; */
-}
-
-.day span {
-    /* color: black; */
+.day:not(.clinic):hover {
+    background-color: #ffffff;
+    border-color: #999;
+    outline: 0;
+    box-shadow: 0 0 0px 0px #333;
 }
 
 .day:hover {    
@@ -86,7 +85,18 @@
     background-color: rgb(65 236 72);
 }
 
+.multi-discipline {
+    border-color: orange;
+    background-color: rgb(255, 217, 145);
+}
+
 .clinic:hover {
     border-color: blue;
     box-shadow: 0 0 1px 1px #0000004d;
+}
+
+.psiaLink {
+    text-decoration: underline;
+    color: blue;
+    padding: 0 0.5rem;
 }

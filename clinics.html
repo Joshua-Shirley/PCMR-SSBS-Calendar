@@ -30,13 +30,15 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/structure.css">
     <link rel="stylesheet" href="css/style.css">
+    
     <link rel="stylesheet" href="css/calendar.css">
+    
     <link rel="stylesheet" href="css/clinics.css">
+    
 
     <!-- Pre Load Javascripts -->
-    <script src="data/peak-2022.js"></script>
-    <script src="data/psia-2022.js"></script>
-
+    <script src="data/peak-2022.js"></script>   
+    <script src="data/next.js"></script>
 
 </head>
 
@@ -68,9 +70,15 @@
 
         <div class="row">
             <div class="col-12">
+                <h3>Scheduled Clinics</h3>
+            </div>
+            <div class="col-12" id="registered"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
                 <h3>Clinic Filters</h3> 
-                <div class="filters" id="clinicFilters">
-                                       
+                <div class="filters" id="clinicFilters">                                       
                 </div>
             </div>           
         </div>
@@ -107,9 +115,10 @@
     <script src="js/requirements.js "></script>
     -->
     <script src="js/calendar.js"></script>
+    <script src="js/events.js"></script>
 
     <script>        
-        calendar.print(new Date(),'05-15-2023');
+        calendar.print(new Date(),'04-15-2023');
     </script>
 
     <script src="js/psia-clinics.js"></script>
@@ -117,6 +126,7 @@
 
     <!-- Inessential Optional Add Ons -->
     <script src="js/scrollTopButton.js "></script>
+    <script src="js/modal.js"></script>
 
 </body>
 

@@ -80,9 +80,51 @@ let private = {
     
     },
 
+    lessonStart: function(date,time) {
+        var date = new Date(date);        
+        switch(time) {            
+            case 'am': 
+                date.setHours(8,45,0,0);
+                break;
+            case 'pm':
+                date.setHours(13,0,0,0);
+                break;
+            default:
+                date.setHours(8,45,0,0);
+        }
+        return date;
+    },
+
+    lessonFinish: function(date,time) {
+        var date = new Date(date);
+        switch(time) {
+            case 'am':
+                date.setHours(11,45,0,0);
+                break;
+            case 'pm':
+                date.setHours(16,0,0,0);
+                break;
+            default:
+                date.setHours(15,45,0,0);
+        }
+        return date;
+    },
+
     newLesson: function(guestId, date, time) {                
         var lesson = new Lesson(guestId, new Date(date).toISOString(), time);        
         this.data.lessons.push(lesson);
+
+        // Modify this to use the eventer object       
+        var dateStart = this.lessonStart(date);    
+        var dateFinish = this.lessonFinish(date);
+        //var event = new Event( dateStart, dateFinish, 'Scheduled work day', 'general assignment', 'Work' );
+
+        // Guest Information
+        var g = this.data.guests.filter(g => g.id = guestId)[0];
+        var event = new Event( dateStart, dateFinish, g.first + ' ' + g.last, 'Private Request Lesson', 'Work' );       
+        eventer.add(event);
+
+
         localStorage.setItem("private_request",JSON.stringify(this.data.lessons));
     },
 

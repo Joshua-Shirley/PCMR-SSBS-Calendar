@@ -162,4 +162,6 @@ let print = {
 
 }
 
-print.init();
+var work = eventer.events.filter( ev => ev.type == 'Work' );
+confirmed.filter( d => d.slice(0,10) == work[0].dateTimeStart.slice(0,10) );
+var overflow = work.filter( ev => !confirmed.filter( d => d.slice(0,10) == ev.dateTimeStart.slice(0,10) ).length > 0);

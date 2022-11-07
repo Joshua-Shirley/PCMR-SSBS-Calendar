@@ -27,11 +27,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/structure.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/calendar.css">
-
+    
     <!-- Pre Load Javascripts -->
     <script src="data/peak-2022.js"></script>
     
@@ -65,31 +66,12 @@
     <main>
 
         <div class="row">
-            <div class="col-9">
-                <div class="filters" id="filters">
-                    <h3>Clinic Filters</h3>
-                    <form>
-                        <div>
-                            <button type="button" class="filter" name="psia" id="alpine">Alpine</button>
-                            <button type="button" class="filter" name="psia" id="snowboard">Snowboard</button>
-                            <button type="button" class="filter" name="psia" id="childspecialist">Child Specialist</button>
-
-                        </div>
-                        <div>
-                            <button type="button" class="filter" id="">PC SSBS Alpine</button>
-                            <button type="button" class="filter" id="">PC SSBS Snowboard</button>
-                        </div>
-                    </form>
-                </div>
+            <div class="col-8">                
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <div class="viewStats" id="statistics"></div>
             </div>
         </div>
-
-
-
-
 
         <div class="calendar" id="skiSeason"></div>
 
@@ -126,12 +108,25 @@
     <script>
         calendar.print('11-19-2022', '04-09-2023');
     </script>
+    <script src="js/events.js"></script>
+    <script src="js/viewer.js"></script>
+    
+    
     <script src="js/schoolrequirements.js"></script>
     <script src="js/statistics.js"></script>
     <script src="js/scheduling.js"></script>
+    
+    <script>
+        viewer.display();
+    </script>
+
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="js/modal.js"></script>
 
     <!-- Inessential Optional Add Ons -->
     <script src="js/scrollTopButton.js "></script>
+
+
 
 </body>
 

@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="css/private.css">
+    <link rel="stylesheet" href="css/calendarSmall.css">
     <!-- <link rel="stylesheet" href="css/style.css?v=1.0"> -->
 
     <!-- Pre Load Javascripts -->
@@ -74,19 +75,19 @@
                     <h4>Guest</h4>
                     <div class="col-12">
                         <label for="guestName">First Name</label>
-                        <input type="text" class="form-control" name="guestFirst" id="guestNameFirst" value="Jason">
+                        <input type="text" class="form-control" name="guestFirst" id="guestNameFirst" value="">
                     </div>
                     <div class="col-12">
                         <label for="guestNameLast">Last Name</label>
-                        <input type="text" class="form-control" name="guestLast" id="guestNameLast" value="Brown">
+                        <input type="text" class="form-control" name="guestLast" id="guestNameLast" value="">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6">
                         <label for="startDate">Start Date</label>
-                        <input type="date" class="form-control" name="startDate" id="startDate" value="2023-01-14" />
-                        <pre>FIX ME - only open dates should be eligible to select.</pre>
+                        <input type="date" class="form-control" name="startDate" id="startDate" value="" />
+                        
                     </div>
                     <div class="col-6">
                         <label for="endDate">Days</label>
@@ -98,6 +99,10 @@
 
                             <button type="button" class="btn down" id="down" onclick="private.inputNumber(-1)">-</button>
 
+                        </div>
+                    </div>
+                    <div class="col-12" id="smallCalendar">
+                        <div class="smallCalendar">                            
                         </div>
                     </div>
                 </div>
@@ -152,11 +157,37 @@
     <!-- Final Load Javascripts -->
     <!-- Majority of js code should go here -->
     <script src="js/footer.js "></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/events.js"></script>
+    <script>
+        calendar.bindingElement = document.getElementById("smallCalendar").querySelector(".smallCalendar");
+        calendar.print('11-19-2022', '04-09-2023');
 
+        var d = document.querySelectorAll(".day:not(.weekday):not(.inactive)");
+        d.forEach(day => {
+            day.addEventListener("click",function(){ 
+                var n = new Date( day.getAttribute("datetime") );
+                var options = { weekday: "short", year: "numeric", month: "2-digit", day: "numeric"};                
+                document.getElementById("startDate").value = n.toLocaleDateString("fr-CA");
+                document.getElementById("startDate").focus();
+            });
+        });
+
+        var arr = eventer.events.filter( ev => ev.type == 'Work' && ev.description == 'Private Request Lesson' );
+        arr.forEach( ev => {
+            var d = new Date(ev.dateTimeStart);
+            var id = d.toDateString().toLowerCase().split(' ').join('');
+            var el = document.getElementById(id);
+            el.classList.add('scheduled');
+        });
+
+    </script>
     <!--
         Requirements should only be used on the settings page.
     -->
     <script src="js/privateLessons.js"></script>
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="js/modal.js"></script>
 
 
     <!-- Inessential Optional Add Ons -->

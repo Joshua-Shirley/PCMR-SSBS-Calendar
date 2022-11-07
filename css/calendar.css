@@ -57,7 +57,7 @@
     display:block;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #e8e8e8;
+    /*border-bottom: 1px solid #e8e8e8;*/
     color: black;
     font-size: 1em;
     font-weight: bold;
@@ -66,11 +66,7 @@
     padding-right: 6px;
 }
 
-span.date-day {
-    
-}
-
-.day:hover {
+.day:not(.clinic):hover {
     background-color: #99191a;
     border-color: #871415;
     outline: 0;
@@ -96,19 +92,21 @@ span.date-day {
     border-color: #2c2c30;
 }
 
+/*
 .week.labels {
     --border-color: #2196f3;
     --padding-bottom: 8px;
     --margin-bottom: 8px;
 }
+*/
 
-span.date-day {
-    /*position: absolute;*/
-    /*left: 5px; */
-    /* padding: 0.5rem 0 0 0.5rem; */
-    /* color: #9b2022; */
-    /* font-size: 1.45rem; */
-    /* font-weight: bold; */
+.day.weekday:hover {
+    background-color: #5a5a5a;
+    color: white;
+}
+
+.day.weekday:hover span {
+    color: white;
 }
 
 .day.scheduled {
@@ -146,18 +144,18 @@ span.date-day {
     color: grey;
 }
 
-.day.peak span.date-message {
-    /*color: red;*/
+.date-content {
+    padding: 0.25rem 0.5rem;
 }
 
 .date-icon {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    padding: 0.5rem;
-    color: #9b2022;
-    font-size: 0.9rem;
     font-weight: normal;
+}
+
+.day.clinic {
+    background-color: var(--color-d);    
+    color: white;
+    border-color: #333;
 }
 
 .day.full {
@@ -234,12 +232,15 @@ button.filter:active {
 }
 
 .today {    
-    background-color: var(--color-d) !important;
-    color: white !important;
+   border: 3px solid var(--color-b);
 }
 
 .today > span {
     color: inherit !important;
+}
+
+.dayClinic {
+    background-color: #2196f3 !important;
 }
 
 @media screen and (min-width: 992px) {

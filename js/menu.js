@@ -6,7 +6,7 @@ let Menu = {
     },
     links: [
         { href: "index.html", text: "Calendar" },
-        { href: "today.html", text: "Today" },
+        //{ href: "today.html", text: "Today" },
         { href: "private-lessons.html", text: "Private Lesson" },        
         { href: "clinics.html", text: "PSIA Clinics" }
     ],

@@ -19,9 +19,10 @@ let overlay = {
         openDate = new Date(school.dates.open);
         while (startDate < openDate) {
             var id = startDate.toDateString().toLowerCase().split(' ').join('');
-            document.getElementById(id).classList.add("closed");
+            var el = document.getElementById(id);
+            el.classList.add("closed");
             startDate.setDate(startDate.getDate() + 1);
-            document.getElementById(id).append(this.message("closed"));
+            el.querySelector("div.date-content").append(this.message("closed"));            
         }
 
         // after
@@ -29,9 +30,10 @@ let overlay = {
         endDate = new Date(calendar.lastDate);
         while (closeDate < endDate) {
             var id = closeDate.toDateString().toLowerCase().split(' ').join('');
-            document.getElementById(id).classList.add("closed");
+            var el = document.getElementById(id);
+            el.classList.add("closed");
             closeDate.setDate(closeDate.getDate() + 1);
-            document.getElementById(id).append(this.message("closed"));
+            el.querySelector("div.date-content").append(this.message("closed"));          
         }
 
     },
@@ -43,7 +45,9 @@ let overlay = {
             pkDates[i] = new Date(pkDates[i]);
             var id = pkDates[i].toDateString().toLowerCase().split(' ').join('');
             document.getElementById(id).classList.add("peak");
-            document.getElementById(id).append(this.icon("peak"));
+
+            
+            document.getElementById(id).querySelector("div.date-row").append(this.icon("peak"));
             pkDates[i] = pkDates[i].toISOString();
         }
 
@@ -53,8 +57,10 @@ let overlay = {
         for (var i = 0; i < school.dates.full.length; i++) {
             var d = new Date(school.dates.full[i]);
             var id = d.toDateString().toLowerCase().split(' ').join('');
-            document.getElementById(id).classList.add("full");
-            document.getElementById(id).append(this.message("full"));
+            var el = document.getElementById(id);
+            el.classList.add("full");
+            var con = el.querySelector("div.date-content");
+            con.append(this.message("full"));
         }
     },
 

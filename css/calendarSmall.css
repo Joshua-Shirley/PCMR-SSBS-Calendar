@@ -1,0 +1,58 @@
+.smallCalendar {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.month {    
+    display: inline-block;
+    width: 300px;
+    margin-right: 20px;
+}
+
+.month h3 {
+    text-align: center;
+}
+
+.week {
+    display: flex;
+}
+
+.day {
+    flex-grow: 7;
+    font-size: 20px;
+    padding: 8px;
+    text-align: right;
+    min-width: 40px;
+    max-width: 42px;
+    max-height:42px;
+}
+
+.scheduled {
+    background-color: var(--color-b);
+}
+
+.labels {
+    border-bottom: 1px solid black;
+}
+
+.labels .day {
+    text-align: center;    
+}
+
+.abbreviation,
+.dateNote {
+    display: none;
+}
+
+.day:not(.weekday):hover {
+    background-color: var(--color-d);
+    color: white;
+}
+
+input:focus, input:focus-within {
+    border-color: var(--field-focus-border);
+    box-shadow: var(--focus-01);
+    transition: height .5s;
+    cursor: text;
+}

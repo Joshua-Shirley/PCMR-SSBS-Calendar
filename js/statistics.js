@@ -7,29 +7,29 @@ let stats = {
         pay: 0
     },
 
-    init: function() {
+    init: function() {        
         this.view();
+        this.summary();
     },
 
     summary: function() {
-        function isAfter12(date) {
-            if (new Date(date) > new Date('12-12-2022')) {
+        function isAfter12(obj) {
+            var d = new Date(obj.dateTimeStart);
+            if ( d >= new Date('12-12-2022')) {
                 return true;
             } else {
                 return false;
             }
         }
+        
+        var scheduled = eventer.events.filter(ev => ev.type == 'Work' );
+        
+        var peak = scheduled.filter( ev => (school.peak.fullTime.filter( d => d.slice(0,10) == ev.dateTimeStart.slice(0,10) ).length > 0 )).length;
+        var required = scheduled.filter(isAfter12).length;
 
-        function isInPeak(date) {
-            if (school.peak.fullTime.includes(new Date(date).toISOString())) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        this.data.committed = schedule.data.assigned.length;
-        this.data.peak = schedule.data.assigned.filter(isInPeak).length;
-        this.data.required = schedule.data.assigned.filter(isAfter12).length;
+        this.data.committed = scheduled.length;
+        this.data.peak = peak;
+        this.data.required = required;
 
         this.updateView();
     },

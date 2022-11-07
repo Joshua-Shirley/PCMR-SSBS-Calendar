@@ -181,6 +181,16 @@ label {
     border-color: #0a53be;
 }
 
+.secondary {
+    background-color: #5a5a5a;
+    color: white;
+}
+
+.close {
+    background-color: #5a5a5a;
+    color: white;
+}
+
 input:checked+label {
     /* color: #fff;
     background-color: #6c757d;

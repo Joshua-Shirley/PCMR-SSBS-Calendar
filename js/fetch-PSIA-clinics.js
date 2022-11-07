@@ -24,6 +24,69 @@ class List {
             });
         }
     }
+    sort() {
+        var temp = new Array();
+        // input array should reference the internal list = this.list
+        var inputArray = this.list();
+        // sort the clinics by day date into 31 buckets
+        var arr = new Array(31);
+        for( var i = 0; i < arr.length; i++ )
+        {
+        arr[i] = new Array();
+        }
+
+        // Change the const to the this.list
+        inputArray.forEach( clinic => {
+            var d = new Date( clinic.date );
+            if( d.toString() != 'Invalid Date' ){
+                var day = d.getDate() - 1;
+                arr[day].push(clinic);
+            } else {
+                console.log('date problem' , clinic )
+            }            
+        });
+
+        // join the array again;
+        temp = [];
+        arr.forEach( array => {
+            temp = temp.concat(array);
+        });
+        
+        // sort the clinics by month date into 12 buckets
+        var arr = new Array(12);
+        for( var i = 0; i < arr.length; i++){
+            arr[i] = new Array();
+        }
+
+        temp.forEach( clinic => {
+            var d = new Date( clinic.date);
+            var month = d.getMonth();
+            arr[month].push(clinic);
+        });
+        temp = [];
+        arr.forEach( array => {
+            temp = temp.concat(array);
+        });
+        
+        // sort the clinics by year
+
+        var arr = new Array(10);
+        for( var i = 0; i < arr.length; i++){
+            arr[i] = new Array();
+        }
+
+        temp.forEach( clinic => {
+            var d = new Date(clinic.date);
+            var year = d.getFullYear() - 2017;
+            arr[year].push(clinic);
+        });
+        temp = [];
+        arr.forEach( array => {
+            temp = temp.concat(array);
+        });
+
+        this.list = temp;
+    }
 }
 
 class Clinic {
@@ -85,15 +148,12 @@ let psiaList = {
             return this.sport[index].sport;
         } else {
             return null;
-        }
+        }        
     },
 
     fetch: function() {
     
-        //var page = window.location.search.split("&");
-        var iframe = document.getElementById("psia");
-        var iframeSrc = iframe.src.split("/");
-        var page = iframeSrc[iframeSrc.length - 1].split('&');
+        var page = window.location.search.split("&");                
         var pageMonth = eval(page[0].split('=')[1]) * -1;
         var pageYear = eval(page[1].split('=')[1]);
     
@@ -172,9 +232,9 @@ let psiaList = {
             this.clinics.push( new Clinic(id, sport, date.toISOString() , time, name, location, link, status, days) );
         });
         console.log("Fetch finished", arr.length, "items");
-    }  
+        this.clinics.save();       
+    }
 }
 
-window.addEventListener("load", () => {
-    psiaList.init();
-});
+psiaList.init();
+

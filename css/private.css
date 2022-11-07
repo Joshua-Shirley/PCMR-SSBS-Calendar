@@ -50,3 +50,14 @@ button#up {
 button#down {
     border-radius: 0 4px 4px 0;
 }
+
+input:focus, input:focus-visible {
+    border-color: var(--field-focus-border);
+    box-shadow: var(--focus-01);
+    transition: height .5s;
+    cursor: text;
+}
+
+.scheduled {
+    background-color: var(--color-b);
+}

@@ -8,8 +8,9 @@
     --xl: 1200px;
     --xxl: 1400px;
     --base-color: #b76a6b;
-    --color-b: #B8B640;
     --color-a: #6B0F11;
+    --color-b: #B8B640;
+    --color-c: #b76a6b;
     --color-d: #147AB8;
     --color-e: #39586B;
 }
@@ -333,6 +334,81 @@ th {
     background-color: #f0f0f0;
     color: black;
 }
+
+.modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    background-color: rgb(0 0 0 / 18%);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.modal-dialog {
+    box-sizing: border-box;
+    color: black;
+    transform: none;
+    transition: transform .3s ease-out;
+    position: relative;
+    width: 500px;
+    margin: 2.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: black;
+    background-color: white;
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    outline: 0;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e4e4e4;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-body {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #e4e4e4;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.0rem;
+    display: flex;
+    justify-content: end;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    border-bottom: 0;
+    line-height: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
 
 @media screen and (min-width: 992px) {
     header .container {
